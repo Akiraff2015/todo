@@ -1,0 +1,63 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='dashboard.css')}}">
+{% endblock %}
+
+{% block content %}
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Todo Flask</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li><a><span class="badge">Level {{level}}</span></a></li>
+              <li><a href="/dashboard/create">Create</a></li>
+              <li><a href="/logout">Log Out</a></li>
+          </ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+              <li class="active"><a href="/dashboard/create">Create New Task</a></li>
+            <li><a href="/dashboard/list">Todo List</a></li>
+            <li><a href="/dashboard/complete">List Completed</a></li>
+              <li><a href="/dashboard/hiscore">Hiscore</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h2>Create New Task</h2>
+            <form method="POST" action="/dashboard/create">
+                {{ form.hidden_tag() }}
+                {{ wtf.form_field(form.title) }}
+                {{ wtf.form_field(form.description) }}
+                {{ wtf.form_field(form.priority) }}
+                {{ wtf.form_field(form.deadline) }}
+
+                <button class="btn btn-primary">Add New Task</button>
+            </form>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

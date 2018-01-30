@@ -1,0 +1,25 @@
+.header-title {
+    border-left: 6px solid #000000;
+    background: #d4d4d4;
+    height: auto;
+    margin: -1px 0;
+}
+
+.header-title > h4 {
+    font-weight: 700;
+    margin-left: 10px;
+    padding-top: 7px;
+}
+
+.header-title > p {
+    margin-left: 10px;
+}
+
+.header-title > button {
+    margin: 9px 9px 0 0;
+}
+
+.small-text {
+    font-size: 11px;
+    font-style: italic;
+}

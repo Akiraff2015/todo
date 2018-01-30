@@ -1,0 +1,54 @@
+@navbar-bg: rgba(80, 141, 154, 0.5);
+@black: #000000;
+
+@navbar-active: rgba(41, 111, 125, 0.5);
+
+body {
+    background-image: url("./img/railway.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.bg-dark-grey {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 25px;
+    color: white;
+    border-radius: 15px;
+}
+
+.navbar-default {
+    background: @navbar-bg;
+    border-color: rgba(80, 141, 154, 0.1) !important;
+
+    ul.navbar-nav {
+        li:hover {
+            color: black;
+            background-color: rgba(62, 101, 109, 0.6);
+            font-weight: 600;
+        }
+    }
+
+    .navbar-nav > .active > a {
+        background-color: @navbar-active;
+        color: black;
+        font-weight: 600;
+
+        &:hover {
+            background-color: @navbar-active;
+            color: black;
+            font-weight: 600;
+        }
+    }
+
+    .navbar-nav > li > a {
+        color: black;
+    }
+
+    .navbar-brand {
+        color: @black;
+        &:hover {
+            color: @black;
+        }
+    }
+}
