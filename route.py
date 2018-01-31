@@ -1,13 +1,12 @@
 from flask import render_template, redirect, url_for, request
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
-
 from app import app, db
 from controllers.experience_controller import get_all_experience_users, level_up, get_user_level, create_new_table
 from controllers.task_controller import create_task, view_task, update_complete_task
-from form import *
-from model import *
-from models.task import Task
+from form import LoginForm, RegisterForm, TodoForm
+
+from models import Task, User
 
 login_manager = LoginManager()
 login_manager.init_app(app)

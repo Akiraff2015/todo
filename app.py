@@ -5,7 +5,6 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 Bootstrap(app)
 db = SQLAlchemy(app)
-
 app.config.from_pyfile('config.py')
 
 from route import *
