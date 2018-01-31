@@ -4,7 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from app import app, db
 from controllers.experience_controller import get_all_experience_users, level_up, get_user_level, create_new_table
 from controllers.task_controller import create_task, view_task, update_complete_task
-from controllers.reward_controller import create_new_reward
+from controllers.reward_controller import create_new_reward, reward_user
 from form import LoginForm, RegisterForm, TodoForm
 
 from models import Task, User
@@ -73,6 +73,7 @@ def dashboard_list():
 
     if request.args.get('complete') == '1':
         update_complete_task()
+        reward_user(current_user)
         return redirect(url_for('dashboard_list'))
 
     return render_template('/dashboard/list.html', tasks=tasks, level=get_user_level(current_user))
