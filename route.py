@@ -4,6 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from app import app, db
 from controllers.experience_controller import get_all_experience_users, level_up, get_user_level, create_new_table
 from controllers.task_controller import create_task, view_task, update_complete_task
+from controllers.reward_controller import create_new_reward
 from form import LoginForm, RegisterForm, TodoForm
 
 from models import Task, User
@@ -42,6 +43,7 @@ def signup():
         hashed_password = generate_password_hash(form.password.data, method='sha256')
         new_user = User(username = form.username.data, email = form.email.data, password = hashed_password)
         create_new_table(new_user)
+        create_new_reward(new_user)
         db.session.add(new_user)
         db.session.commit()
         return redirect(url_for('index'))
@@ -55,7 +57,6 @@ def dashboard():
 @app.route('/dashboard/create', methods=['GET', 'POST'])
 @login_required
 def dashboard_create():
-
     form = TodoForm()
 
     if form.validate_on_submit():

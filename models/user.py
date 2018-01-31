@@ -8,3 +8,4 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String(80))
     tasks = db.relationship('Task', backref='author', lazy='dynamic')
     xp = db.relationship('Experience', backref='author', lazy='dynamic')
+    reward = db.relationship('Reward', backref='author', lazy='dynamic')

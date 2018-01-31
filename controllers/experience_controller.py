@@ -1,6 +1,4 @@
-from flask import render_template
-from models.experience import Experience
-from models.experience_table import ExperienceTable
+from models import Experience, ExperienceTable
 from math import fabs
 from app import db
 

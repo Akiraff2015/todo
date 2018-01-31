@@ -1,6 +1,5 @@
 from flask import request
-from models.task import Task
-from models.experience import Experience
+from models import Experience, Task
 from app import db
 from custom_class.XP import XP
 
