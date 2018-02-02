@@ -1,9 +1,0 @@
-{
-  "db": {
-    "url": "sqlite:///database.db"
-  },
-
-  "key": {
-    "SECRET_KEY": "verysecretkey"
-  }
-}
