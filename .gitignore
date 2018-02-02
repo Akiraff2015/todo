@@ -1,6 +1,18 @@
-env
+# PyCharm IDE workspace
 .idea
+
+# Python environment
+env
+
+# Depecrated
 config.by
+
+# Python cached and compiled version
 __pycache__/
-database.db
 *.pyc
+
+# SQLite database
+database.db
+
+# API secret tokens, database credentials, misc
+key.json
